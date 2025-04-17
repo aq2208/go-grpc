@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package serviceA;
+option go_package = "./generated/";
+
+service GreeterService {
+  rpc SayHello (HelloRequest) returns (HelloResponse);
+}
+
+service StatusService {
+  rpc ReportStatus (StatusRequest) returns (StatusResponse);
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloResponse {
+  string message = 1;
+}
+
+message StatusRequest {
+  string service_name = 1;
+  string status = 2;
+}
+
+message StatusResponse {
+  string ack = 1;
+}
